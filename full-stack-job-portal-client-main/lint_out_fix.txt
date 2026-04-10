@@ -1,0 +1,27 @@
+
+> frontend@0.0.0 lint
+> eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0 --fix
+
+
+C:\Users\mrvar\job-portal\job-portal-main\full-stack-job-portal-client-main\src\Layout\DashboardLayout.jsx
+  57:14  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\mrvar\job-portal\job-portal-main\full-stack-job-portal-client-main\src\components\AllJobsPage\SearchAndFilter.jsx
+  44:8  warning  React Hook useEffect has a missing dependency: 'handleJobFetch'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\mrvar\job-portal\job-portal-main\full-stack-job-portal-client-main\src\context\JobContext.jsx
+  46:10  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\mrvar\job-portal\job-portal-main\full-stack-job-portal-client-main\src\context\UserContext.jsx
+  39:10  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\mrvar\job-portal\job-portal-main\full-stack-job-portal-client-main\src\pages\MockInterview\InterviewResults.jsx
+  17:8  warning  React Hook useEffect has a missing dependency: 'fetchResults'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\mrvar\job-portal\job-portal-main\full-stack-job-portal-client-main\src\pages\MockInterview\PracticeInterview.jsx
+  24:8  warning  React Hook useEffect has missing dependencies: 'fetchQuestions' and 'questions.length'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+✖ 6 problems (0 errors, 6 warnings)
+
+
+ESLint found too many warnings (maximum: 0).

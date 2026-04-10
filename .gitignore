@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+*.log
+yarn-error.log*
+
+# Env
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Builds
+dist/
+build/
+.out/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Public uploads (but keep resumes if needed, or exclude)
+**/public/uploads/resumes/*.pdf
+
+# Locks (keep or not, but subdirs have)
+yarn.lock
+package-lock.json

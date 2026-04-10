@@ -1,0 +1,93 @@
+
+> frontend@0.0.0 lint
+> eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0
+
+
+C:\Users\mrvar\job-portal\job-portal-main\full-stack-job-portal-client-main\src\Layout\DashboardLayout.jsx
+  57:14  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\mrvar\job-portal\job-portal-main\full-stack-job-portal-client-main\src\components\AllJobsPage\SearchAndFilter.jsx
+  44:8  warning  React Hook useEffect has a missing dependency: 'handleJobFetch'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\mrvar\job-portal\job-portal-main\full-stack-job-portal-client-main\src\components\shared\Navbar.jsx
+  1:1  error  Unused eslint-disable directive (no problems were reported from 'react/prop-types')
+
+C:\Users\mrvar\job-portal\job-portal-main\full-stack-job-portal-client-main\src\context\JobContext.jsx
+  46:10  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\mrvar\job-portal\job-portal-main\full-stack-job-portal-client-main\src\context\UserContext.jsx
+  39:10  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\mrvar\job-portal\job-portal-main\full-stack-job-portal-client-main\src\pages\AddJob.jsx
+  1:1  error  Unused eslint-disable directive (no problems were reported from 'no-unused-vars')
+
+C:\Users\mrvar\job-portal\job-portal-main\full-stack-job-portal-client-main\src\pages\Admin.jsx
+   28:22  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+   30:26  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+   31:30  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+   34:30  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+   41:29  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+   44:33  error  Unknown property 'stroke-linecap' found, use 'strokeLinecap' instead    react/no-unknown-property
+   45:33  error  Unknown property 'stroke-linejoin' found, use 'strokeLinejoin' instead  react/no-unknown-property
+   46:33  error  Unknown property 'stroke-width' found, use 'strokeWidth' instead        react/no-unknown-property
+   53:26  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+   54:30  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+   57:30  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+   64:29  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+   67:33  error  Unknown property 'stroke-linecap' found, use 'strokeLinecap' instead    react/no-unknown-property
+   68:33  error  Unknown property 'stroke-linejoin' found, use 'strokeLinejoin' instead  react/no-unknown-property
+   69:33  error  Unknown property 'stroke-width' found, use 'strokeWidth' instead        react/no-unknown-property
+   76:26  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+   77:30  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+   80:30  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+   87:29  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+   90:33  error  Unknown property 'stroke-linecap' found, use 'strokeLinecap' instead    react/no-unknown-property
+   91:33  error  Unknown property 'stroke-linejoin' found, use 'strokeLinejoin' instead  react/no-unknown-property
+   92:33  error  Unknown property 'stroke-width' found, use 'strokeWidth' instead        react/no-unknown-property
+   99:26  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  100:30  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  103:30  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  110:29  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  113:33  error  Unknown property 'stroke-linecap' found, use 'strokeLinecap' instead    react/no-unknown-property
+  114:33  error  Unknown property 'stroke-linejoin' found, use 'strokeLinejoin' instead  react/no-unknown-property
+  115:33  error  Unknown property 'stroke-width' found, use 'strokeWidth' instead        react/no-unknown-property
+  127:22  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  129:26  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  130:30  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  133:30  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  140:29  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  143:33  error  Unknown property 'stroke-linecap' found, use 'strokeLinecap' instead    react/no-unknown-property
+  144:33  error  Unknown property 'stroke-linejoin' found, use 'strokeLinejoin' instead  react/no-unknown-property
+  145:33  error  Unknown property 'stroke-width' found, use 'strokeWidth' instead        react/no-unknown-property
+  152:26  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  153:30  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  156:30  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  163:29  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  166:33  error  Unknown property 'stroke-linecap' found, use 'strokeLinecap' instead    react/no-unknown-property
+  167:33  error  Unknown property 'stroke-linejoin' found, use 'strokeLinejoin' instead  react/no-unknown-property
+  168:33  error  Unknown property 'stroke-width' found, use 'strokeWidth' instead        react/no-unknown-property
+  175:26  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  176:30  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  179:30  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  186:29  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  189:33  error  Unknown property 'stroke-linecap' found, use 'strokeLinecap' instead    react/no-unknown-property
+  190:33  error  Unknown property 'stroke-linejoin' found, use 'strokeLinejoin' instead  react/no-unknown-property
+  191:33  error  Unknown property 'stroke-width' found, use 'strokeWidth' instead        react/no-unknown-property
+  198:26  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  199:30  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  202:30  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  209:29  error  Unknown property 'class' found, use 'className' instead                 react/no-unknown-property
+  212:33  error  Unknown property 'stroke-linecap' found, use 'strokeLinecap' instead    react/no-unknown-property
+  213:33  error  Unknown property 'stroke-linejoin' found, use 'strokeLinejoin' instead  react/no-unknown-property
+  214:33  error  Unknown property 'stroke-width' found, use 'strokeWidth' instead        react/no-unknown-property
+
+C:\Users\mrvar\job-portal\job-portal-main\full-stack-job-portal-client-main\src\pages\MockInterview\InterviewResults.jsx
+  17:8  warning  React Hook useEffect has a missing dependency: 'fetchResults'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\mrvar\job-portal\job-portal-main\full-stack-job-portal-client-main\src\pages\MockInterview\PracticeInterview.jsx
+  24:8  warning  React Hook useEffect has missing dependencies: 'fetchQuestions' and 'questions.length'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+✖ 66 problems (60 errors, 6 warnings)
+  60 errors and 0 warnings potentially fixable with the `--fix` option.
+
+
