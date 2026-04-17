@@ -16,31 +16,31 @@ const {
 JobRouter.route("/")
     .get(JobController.getAllJobs)
     .post(
-        userAuthorizationHandler("recruiter"),
+        userAuthorizationHandler("recruiter", "admin"),
         checkJobInput,
         inputValidationMiddleware,
         JobController.addJob
     )
-    .delete(JobController.deleteAllJobs);
+    .delete(userAuthorizationHandler("admin"), JobController.deleteAllJobs);
 
 JobRouter.get("/my-jobs", JobController.getMyJobs);
 JobRouter.route("/:id")
     .get(JobController.getSingleJob)
     .patch(
-        userAuthorizationHandler("recruiter"),
+        userAuthorizationHandler("recruiter", "admin"),
         checkJobInput,
         inputValidationMiddleware,
         JobController.updateSingleJob
     )
     .delete(
-        userAuthorizationHandler("recruiter"),
+        userAuthorizationHandler("recruiter", "admin"),
         JobController.deleteSingleJob
     );
 
 // Meeting Link — lightweight partial update (no full job validation needed)
 JobRouter.patch(
     "/:id/meeting-link",
-    userAuthorizationHandler("recruiter"),
+    userAuthorizationHandler("recruiter", "admin"),
     JobController.updateMeetingLink
 );
 

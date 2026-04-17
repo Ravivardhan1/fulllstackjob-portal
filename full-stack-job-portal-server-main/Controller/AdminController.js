@@ -111,6 +111,17 @@ exports.updateUserRole = async (req, res, next) => {
             if (req?.user?.role !== "admin") {
                 next(createError(500, `You have no permission to update`));
             } else {
+                const allowedRoles = ["admin", "recruiter", "user"];
+                if (!allowedRoles.includes(role)) {
+                    return next(createError(400, "Invalid role value"));
+                }
+
+                if (req?.user?._id?.toString() === id?.toString()) {
+                    return next(
+                        createError(400, "You cannot change your own role")
+                    );
+                }
+
                 const updateUser = await UserModel.findByIdAndUpdate(
                     { _id: id },
                     { $set: { role: role } },

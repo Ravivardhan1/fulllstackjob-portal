@@ -110,7 +110,7 @@ const getData = async (filters, queries) => {
 };
 
 module.exports.getRecruiterPostJobs = async (req, res, next) => {
-    const filter = { recruiterId: req.user._id };
+    const filter = req?.user?.role === "admin" ? {} : { recruiterId: req.user._id };
     try {
         const result = await ApplicationModel.find(filter).populate("jobId");
         const totalJobs = await ApplicationModel.countDocuments(filter);
@@ -156,7 +156,11 @@ module.exports.updateJobStatus = async (req, res, next) => {
     const data = req.body;
 
     try {
-        if (data?.recruiterId?.toString() === req?.user._id.toString()) {
+        const isAdmin = req?.user?.role === "admin";
+        const isOwnerRecruiter =
+            data?.recruiterId?.toString() === req?.user?._id?.toString();
+
+        if (isOwnerRecruiter || isAdmin) {
             console.log("same");
             if (!mongoose.Types.ObjectId.isValid(id)) {
                 next(createError(400, "Invalid Job ID format"));

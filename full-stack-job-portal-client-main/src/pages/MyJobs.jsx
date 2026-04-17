@@ -12,12 +12,15 @@ const MyJobs = () => {
     return (
         <Wrapper>
             <div className="title-row">
-                {user?.role === "recruiter" && "Manage Applications"}
+                {(user?.role === "recruiter" || user?.role === "admin") &&
+                    "Manage Applications"}
                 {user?.role === "user" && "My Applications"}
                 <CiSquarePlus className="ml-1 text-xl md:text-2xl" />
             </div>
             {user?.role === "user" && <Applicant />}
-            {user?.role === "recruiter" && <Recruiter />}
+            {(user?.role === "recruiter" || user?.role === "admin") && (
+                <Recruiter />
+            )}
         </Wrapper>
     );
 };

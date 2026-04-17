@@ -92,9 +92,13 @@ module.exports.getAllJobs = async (req, res, next) => {
 
 module.exports.getMyJobs = async (req, res, next) => {
     try {
-        const result = await JobModel.find({
-            createdBy: req.user._id,
-        }).populate("createdBy", "username email");
+        const query =
+            req?.user?.role === "admin" ? {} : { createdBy: req.user._id };
+
+        const result = await JobModel.find(query).populate(
+            "createdBy",
+            "username email"
+        );
         // here in populate only give the "username(selected filed) or only (-password) ommited fields" else showing error
 
         if (result?.length) {
@@ -206,6 +210,15 @@ module.exports.updateSingleJob = async (req, res, next) => {
         if (!isJobExists) {
             next(createError(500, "Job not found"));
         } else {
+            const isAdmin = req?.user?.role === "admin";
+            const isOwner =
+                isJobExists?.createdBy?.toString() === req?.user?._id?.toString();
+            if (!isAdmin && !isOwner) {
+                return next(
+                    createError(403, "You are not authorized to update this job")
+                );
+            }
+
             const updatedJob = await JobModel.findByIdAndUpdate(id, data, {
                 new: true,
             });
@@ -234,6 +247,15 @@ module.exports.deleteSingleJob = async (req, res, next) => {
                 message: "Job not found",
             });
         } else {
+            const isAdmin = req?.user?.role === "admin";
+            const isOwner =
+                isJobExists?.createdBy?.toString() === req?.user?._id?.toString();
+            if (!isAdmin && !isOwner) {
+                return next(
+                    createError(403, "You are not authorized to delete this job")
+                );
+            }
+
             // Find and delete associated applications
 
             await ApplicationModel.deleteMany({ jobId: id });
@@ -273,8 +295,10 @@ module.exports.updateMeetingLink = async (req, res, next) => {
         if (!job) {
             return next(createError(404, "Job not found"));
         }
-        // Only allow the job creator to update
-        if (job.createdBy.toString() !== req.user._id.toString()) {
+        const isAdmin = req?.user?.role === "admin";
+        const isOwner = job.createdBy.toString() === req.user._id.toString();
+        // Only allow the job creator or admin to update
+        if (!isOwner && !isAdmin) {
             return next(createError(403, "You are not authorized to update this job"));
         }
         job.meetingLink = meetingLink || "";

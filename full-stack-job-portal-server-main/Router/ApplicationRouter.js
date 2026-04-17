@@ -35,13 +35,13 @@ ApplicationRouter.post(
 
 ApplicationRouter.get(
     "/recruiter-jobs",
-    userAuthorizationHandler("recruiter"),
+    userAuthorizationHandler("recruiter", "admin"),
     ApplicationController.getRecruiterPostJobs
 );
 
 ApplicationRouter.patch(
     "/:id",
-    userAuthorizationHandler("recruiter"),
+    userAuthorizationHandler("recruiter", "admin"),
     ApplicationController.updateJobStatus
 );
 

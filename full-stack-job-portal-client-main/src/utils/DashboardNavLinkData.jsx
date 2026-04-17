@@ -35,6 +35,16 @@ const AdminLinks = [
         path: "manage-users",
         icon: <FaUsers />,
     },
+    {
+        text: "manage jobs",
+        path: "manage-jobs",
+        icon: <MdManageAccounts />,
+    },
+    {
+        text: "applications",
+        path: "my-jobs",
+        icon: <FaBriefcase />,
+    },
 ];
 
 const RecruiterLinks = [
