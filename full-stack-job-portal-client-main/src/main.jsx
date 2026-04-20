@@ -8,8 +8,10 @@ import { RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { UserContext } from "./context/UserContext";
 import axios from "axios";
+import { API_BASE_URL } from "./utils/api";
 
 axios.defaults.withCredentials = true;
+axios.defaults.baseURL = API_BASE_URL;
 
 // Create a client
 const queryClient = new QueryClient();

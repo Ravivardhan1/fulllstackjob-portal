@@ -3,14 +3,13 @@ import React from "react";
 import styled from "styled-components";
 import { getAllHandler } from "../utils/FetchHandlers";
 import LoadingComTwo from "../components/shared/LoadingComTwo";
+import { buildApiUrl } from "../utils/api";
 
 const Admin = () => {
     const { isPending, isError, data, error } = useQuery({
         queryKey: ["admin_info"],
         queryFn: () =>
-            getAllHandler(
-                `http://localhost:3000/api/v1/admin/info`
-            ),
+            getAllHandler(buildApiUrl("/admin/info")),
     });
 
     if (isPending) {

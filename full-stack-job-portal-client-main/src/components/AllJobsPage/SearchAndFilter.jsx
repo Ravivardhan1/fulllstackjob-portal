@@ -5,6 +5,7 @@ import { Job_Status, Job_Type, Job_Sort_By } from "../../utils/JobData";
 import { CiFilter } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
 import { useJobContext } from "../../context/JobContext";
+import { buildApiUrl } from "../../utils/api";
 
 const SearchAndFilter = () => {
     const { handleJobFetch } = useJobContext();
@@ -15,8 +16,7 @@ const SearchAndFilter = () => {
     const [searchQuery, setSearchQuery] = useState("");
 
     useEffect(() => {
-        const baseUrl =
-            "http://localhost:3000/api/v1/jobs?page=1&limit=5";
+        const baseUrl = buildApiUrl("/jobs?page=1&limit=5");
         let url = baseUrl;
         const queryParams = {};
 

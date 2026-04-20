@@ -5,12 +5,25 @@ const cookieParser = require("cookie-parser");
 
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
+const allowedOrigins = (process.env.CLIENT_URLS ||
+    process.env.CLIENT_URL ||
+    "http://localhost:5173")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+
 // Middlewares
 app.use(express.json());
 app.use(
     cors({
-        origin: ["https://mern-job-portal-seven.vercel.app","http://localhost:5173"],
-        methods: ["GET,POST,DELETE,PUT,PATCH"],
+        origin: (origin, callback) => {
+            if (!origin || allowedOrigins.includes(origin)) {
+                return callback(null, true);
+            }
+
+            return callback(new Error("Not allowed by CORS"));
+        },
+        methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
         credentials: true,
     })
 );

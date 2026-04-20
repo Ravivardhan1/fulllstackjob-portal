@@ -4,6 +4,9 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const JWTGenerator = require("../Utils/JWTGenerator");
 
+const getPublicBaseUrl = (req) =>
+    process.env.PUBLIC_SERVER_URL || `${req.protocol}://${req.get("host")}`;
+
 const setAuthCookie = (res, user) => {
     const tokenObj = {
         ID: user._id,
@@ -56,8 +59,8 @@ exports.getMe = async (req, res, next) => {
 exports.logOut = async (req, res, next) => {
     try {
         res.cookie(process.env.COOKIE_NAME, "", {
-            sameSite: "none",
-            secure: true,
+            sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+            secure: process.env.NODE_ENV === "production",
             httpOnly: true,
             expires: new Date(0), // Set to a date in the past
             path: "/", // Ensure this matches the path set during login
@@ -81,7 +84,9 @@ exports.uploadResume = async (req, res, next) => {
         if (!req.file) {
             return next(createError(400, "No file uploaded"));
         }
-        const fileUrl = `http://localhost:3000/public/uploads/resumes/${req.file.filename}`;
+        const fileUrl = `${getPublicBaseUrl(
+            req
+        )}/public/uploads/resumes/${req.file.filename}`;
         
         res.status(200).json({
             status: true,

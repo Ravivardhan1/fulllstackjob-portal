@@ -6,6 +6,7 @@ import { SmallSidebar, LargeSidebar, DashboardNavbar } from "../components";
 import Swal from "sweetalert2";
 import { useUserContext } from "../context/UserContext";
 import axios from "axios";
+import { buildApiUrl } from "../utils/api";
 
 const DashboardContext = createContext();
 
@@ -15,10 +16,7 @@ const DashboardLayout = () => {
 
     const handleLogout = async () => {
         try {
-            const response = await axios.post(
-                "http://localhost:3000/api/v1/auth/logout",
-                { withCredentials: true }
-            );
+            const response = await axios.post(buildApiUrl("/auth/logout"));
             Swal.fire({
                 icon: "success",
                 title: "Logout...",

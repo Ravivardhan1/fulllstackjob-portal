@@ -15,6 +15,7 @@ import { useUserContext } from "../../context/UserContext";
 import { Link } from "react-router-dom";
 import { postHandler } from "../../utils/FetchHandlers";
 import Swal from "sweetalert2";
+import { buildApiUrl } from "../../utils/api";
 
 const JobCard = ({ job }) => {
     const date = dayjs(job?.jobDeadline).format("MMM Do, YYYY");
@@ -33,7 +34,7 @@ const JobCard = ({ job }) => {
         };
         try {
             const response = await postHandler({
-                url: "http://localhost:3000/api/v1/application/apply",
+                url: buildApiUrl("/application/apply"),
                 body: appliedJob,
             });
             Swal.fire({

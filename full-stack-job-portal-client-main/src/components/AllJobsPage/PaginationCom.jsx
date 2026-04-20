@@ -3,6 +3,7 @@ import React from "react";
 import ReactPaginate from "react-paginate";
 import { useJobContext } from "../../context/JobContext";
 import styled from "styled-components";
+import { buildApiUrl } from "../../utils/api";
 
 const PaginationCom = () => {
     const { handleJobFetch, jobs } = useJobContext();
@@ -13,11 +14,7 @@ const PaginationCom = () => {
         //     `User requested page number ${e.selected}, which is offset ${newOffset}`
         // );
         // setItemOffset(newOffset);
-        handleJobFetch(
-            `http://localhost:3000/api/v1/jobs?page=${
-                e.selected + 1
-            }&limit=5`
-        );
+        handleJobFetch(buildApiUrl(`/jobs?page=${e.selected + 1}&limit=5`));
     };
 
     return (

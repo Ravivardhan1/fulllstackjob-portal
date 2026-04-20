@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useUserContext } from "../../context/UserContext";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { buildApiUrl } from "../../utils/api";
 
 const Navbar = ({ navbarRef }) => {
     const { user, userLoading, handleFetchMe } = useUserContext();
@@ -14,7 +15,7 @@ const Navbar = ({ navbarRef }) => {
     const handleLogout = async () => {
         try {
             const response = await axios.post(
-                "http://localhost:3000/api/v1/auth/logout",
+                buildApiUrl("/auth/logout"),
                 {},
                 { withCredentials: true }
             );

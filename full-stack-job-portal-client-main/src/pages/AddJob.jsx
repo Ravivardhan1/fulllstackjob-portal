@@ -20,6 +20,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 import { TagsInput } from "react-tag-input-component";
+import { buildApiUrl } from "../utils/api";
 
 const AddJob = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -55,7 +56,7 @@ const AddJob = () => {
         // posting;
         try {
             const response = await axios.post(
-                "http://localhost:3000/api/v1/jobs",
+                buildApiUrl("/jobs"),
                 newJob,
                 {
                     withCredentials: true,
